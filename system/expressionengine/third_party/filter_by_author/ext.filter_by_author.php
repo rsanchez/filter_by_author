@@ -4,7 +4,7 @@ class Filter_by_author_ext
 {
 	public $settings = array();
 	public $name = 'Filter By Author';
-	public $version = '1.0.0';
+	public $version = '1.0.1';
 	public $description = 'Adds an author filter to the edit entries screen.';
 	public $settings_exist = 'n';
 	public $docs_url = 'https://github.com/rsanchez/filter_by_author';
@@ -148,7 +148,7 @@ class Filter_by_author_ext
 			
 			//add the dropdown filter
 			$this->EE->javascript->output('
-				$("form#filterform div.group").append('.$this->EE->javascript->generate_json(NBS.NBS.form_dropdown('author_id', $authors, NULL, 'id="author_id"')).');
+				$("form#filterform div.group").append('.json_encode(NBS.NBS.form_dropdown('author_id', $authors, NULL, 'id="author_id"')).');
 				$("#author_id").on("change", function() {
 					$("#search_button").trigger("click");
 				});
